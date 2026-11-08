@@ -1,29 +1,32 @@
-package AracKiralama;
+package StokYonetimSistemi;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		Arac arac1 = new Arac ("Toyota" , "Corolla" , 1500 , false);
-		Arac arac2 = new Arac ("Renault", "Clio" , 1200 , false);
-		Arac arac3 = new Arac ("BMW" , "320i", 3000, true);
+		Product product1 = new Product ("Laptop" , 25000, 10);
+		Product product2 = new Product ("Mouse" , 500, 20);
 		
-		arac1.bilgileriGoster();
-		arac2.bilgileriGoster();
-		arac3.bilgileriGoster();
+		ProductManager productManager1 = new ProductManager ();
 		
-		arac1.kirala();
-		arac1.kirala();
-
-		arac2.kiraBedeliHesapla(5);
-		System.out.println("5 günlük araç bedeli: " + arac2.kiraBedeliHesapla(5) + "TL");
-		arac3.teslimEt();
+		System.out.println ( "=== BAŞLANGIÇ BİLGİLERİ===");
+		productManager1.urunBilgileriniGoster(product1);
+		productManager1.urunBilgileriniGoster(product2);
 		
-		arac1.bilgileriGoster();
-		arac2.bilgileriGoster();
-		arac3.bilgileriGoster();
+		productManager1.satisYap (product1, 3);
+		productManager1.satisYap (product2, 25);
 		
-
+		productManager1.stokEkle (product2, 10);
+		
+		product1.setPrice (-500);
+		
+		System.out.println("\n=== GÜNCEL BİLGİLER ===");
+		productManager1.urunBilgileriniGoster(product1);
+		productManager1.urunBilgileriniGoster(product2);
+		
+		
+		
+		
 	}
 
 }
